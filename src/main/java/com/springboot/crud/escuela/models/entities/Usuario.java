@@ -31,9 +31,9 @@ public class Usuario implements Serializable {
     private Profesor profesor;
 
     // hace referencia a la clase Rol (muchos usuarios para un rol)
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "rol_id")
-    private Rol rol;
+    private Rol rol;*/
 
     private String nombre;
 
