@@ -1,5 +1,9 @@
 package com.springboot.crud.escuela.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,6 +17,9 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Curso implements Serializable {
     @Id
     @Column(name = "curso_id")
@@ -29,10 +36,12 @@ public class Curso implements Serializable {
     private Integer horasPractica;
 
     // para la relación muchos a muchos con estudiantes
+    @JsonIgnore
     @ManyToMany(mappedBy = "cursos")
     private List<Estudiante> estudiantes;
 
     // para la relación muchos a muchos con profesores
+    @JsonIgnore
     @ManyToMany(mappedBy = "cursos")
     private List<Profesor> profesores;
 

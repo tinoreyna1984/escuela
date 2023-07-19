@@ -7,3 +7,40 @@ insert into usuario (nombre, apellido, doc_identidad, fecha_nacimiento, username
 insert into usuario (nombre, apellido, doc_identidad, fecha_nacimiento, username, password, email) values ('Sergio', 'Pozo', '0933221144', '2001-09-14', 'sergiopozo', 'sergiopozo', 'sergiopozo@mail.com');
 insert into usuario (nombre, apellido, doc_identidad, fecha_nacimiento, username, password, email) values ('Carlos', 'Vela', '0911442233', '2001-03-18', 'carlosvela', 'carlosvela', 'carlosvela@mail.com');
 insert into usuario (nombre, apellido, doc_identidad, fecha_nacimiento, username, password, email) values ('Peter', 'Pan', '0910203040', '2002-04-21', 'peterpan', 'peterpan', 'peterpan@mail.com');
+
+insert into curso(nombre_curso, horas_teoria, horas_practica) values ("Programacion basica", 3, 2);
+insert into curso(nombre_curso, horas_teoria, horas_practica) values ("HTML + CSS", 3, 2);
+insert into curso(nombre_curso, horas_teoria, horas_practica) values ("JavaScript + Node.js", 3, 2);
+insert into curso(nombre_curso, horas_teoria, horas_practica) values ("React + Next.js", 3, 2);
+insert into curso(nombre_curso, horas_teoria, horas_practica) values ("Angular", 3, 2);
+insert into curso(nombre_curso, horas_teoria, horas_practica) values ("PHP + Laravel", 3, 2);
+
+insert into estudiante(usuario_id) values (2);
+insert into estudiante(usuario_id) values (3);
+insert into estudiante(usuario_id) values (4);
+insert into estudiante(usuario_id) values (5);
+insert into estudiante(usuario_id) values (6);
+
+insert into profesor(usuario_id) values (7);
+insert into profesor(usuario_id) values (8);
+insert into profesor(usuario_id) values (9);
+
+insert into estudiante_curso (curso_id, estudiante_id) values (1, 1);
+insert into estudiante_curso (curso_id, estudiante_id) values (1, 2);
+insert into estudiante_curso (curso_id, estudiante_id) values (1, 3);
+insert into estudiante_curso (curso_id, estudiante_id) values (1, 4);
+insert into estudiante_curso (curso_id, estudiante_id) values (1, 5);
+insert into estudiante_curso (curso_id, estudiante_id) values (2, 1);
+insert into estudiante_curso (curso_id, estudiante_id) values (2, 2);
+insert into estudiante_curso (curso_id, estudiante_id) values (2, 3);
+insert into estudiante_curso (curso_id, estudiante_id) values (3, 1);
+insert into estudiante_curso (curso_id, estudiante_id) values (3, 2);
+
+insert into horario(curso_id, profesor_id) values(1,1);
+insert into horario(curso_id, profesor_id) values(1,2);
+insert into horario(curso_id, profesor_id) values(1,3);
+insert into horario(curso_id, profesor_id) values(2,1);
+insert into horario(curso_id, profesor_id) values(2,2);
+insert into horario(curso_id, profesor_id) values(2,3);
+insert into horario(curso_id, profesor_id) values(3,1);
+insert into horario(curso_id, profesor_id) values(3,2);

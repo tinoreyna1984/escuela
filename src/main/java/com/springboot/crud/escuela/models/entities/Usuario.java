@@ -1,6 +1,6 @@
 package com.springboot.crud.escuela.models.entities;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +16,9 @@ import java.util.Date;
 @Getter
 @Setter
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Usuario implements Serializable {
 
     @Id
@@ -24,9 +27,12 @@ public class Usuario implements Serializable {
     private Long id;
 
     // tablas externas de estudiante y profesor
-
+    //@JsonManagedReference
+    @JsonIgnore
     @OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Estudiante estudiante;
+    //@JsonManagedReference
+    @JsonIgnore
     @OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Profesor profesor;
 
@@ -43,6 +49,7 @@ public class Usuario implements Serializable {
     private String docIdentidad;
 
     @Column(name = "fecha_nacimiento")
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date fechaNacimiento;
 
     private String username;
