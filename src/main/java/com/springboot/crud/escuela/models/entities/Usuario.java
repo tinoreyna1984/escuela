@@ -27,13 +27,12 @@ public class Usuario implements Serializable {
     private Long id;
 
     // tablas externas de estudiante y profesor
-    //@JsonManagedReference
     @JsonIgnore
-    @OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY)
     private Estudiante estudiante;
     //@JsonManagedReference
     @JsonIgnore
-    @OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY)
     private Profesor profesor;
 
     // hace referencia a la clase Rol (muchos usuarios para un rol)
@@ -54,7 +53,7 @@ public class Usuario implements Serializable {
 
     private String username;
 
-    @Size(min = 6, max = 16, message = "La clave debe constar de 6 a 16 caracteres")
+    @Size(min = 6, max = 256, message = "La clave debe constar de 6 a 256 caracteres")
     private String password;
 
     @Email(message = "No válido. Asegúrate de que sea un correo electrónico")

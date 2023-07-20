@@ -47,11 +47,11 @@ public class UsuarioController {
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        if(usuario == null){
+        /*if(usuario == null){
             response.put("mensaje", "Error al realizar la consulta en la base de datos");
             response.put("mensaje", "El usuario ".concat(id.toString().concat(" no existe en la base de datos.")));
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        }*/
 
         return new ResponseEntity<Usuario>(usuario, HttpStatus.OK);
     }
@@ -79,7 +79,7 @@ public class UsuarioController {
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        response.put("mensaje", "La nota ha sido creada con éxito");
+        response.put("mensaje", "El usuario ha sido creado con éxito");
         response.put("nota", usuarioNuevo);
 
         return new ResponseEntity<Map<String, Object>>(response, HttpStatus.CREATED);
@@ -101,11 +101,11 @@ public class UsuarioController {
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
         }
 
-        if(usuarioActual == null){
+        /*if(usuarioActual == null){
             response.put("mensaje", "Error al realizar la consulta en la base de datos");
             response.put("mensaje", "El usuario ".concat(id.toString().concat(" no existe en la base de datos.")));
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        }*/
 
         try {
             usuarioActual.setNombre(usuario.getNombre());
@@ -131,11 +131,11 @@ public class UsuarioController {
         Usuario usuario = usuarioRepository.findById(id).get();
         Map<String, Object> response = new HashMap<>();
 
-        if(usuario == null){
+        /*if(usuario == null){
             response.put("mensaje", "Error al realizar la consulta en la base de datos");
             response.put("mensaje", "El usuario ".concat(id.toString().concat(" no existe en la base de datos.")));
             return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        }*/
 
         try {
             usuarioRepository.deleteById(id);
